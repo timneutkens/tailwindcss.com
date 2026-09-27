@@ -349,9 +349,11 @@ export default function DotGridImage({
   const mouseActiveRef = useRef(0); // 0 = not over canvas, 1 = over canvas
   const mouseActivationRef = useRef(0); // Smooth activation factor 0-1
   const laggedMouseRef = useRef({ x: 0.5, y: 0.5 }); // Lagged mouse position
-  const lastMouseTimeRef = useRef(performance.now());
+  const lastMouseTimeRef = useRef(0);
 
   useEffect(() => {
+    lastMouseTimeRef.current = performance.now();
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 

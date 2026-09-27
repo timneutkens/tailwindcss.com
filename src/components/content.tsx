@@ -401,19 +401,19 @@ export function CustomizingYourTheme({
 }
 
 export function CustomizingYourSpacingScale({ utility, utilities }: { utility: string; utilities: Array<string> }) {
-  utilities = utilities || [utility];
+  const utilitiesToDisplay = utilities || [utility];
 
   return (
     <>
       <p>
         The{" "}
-        {utilities.map((name, index) => (
+        {utilitiesToDisplay.map((name, index) => (
           <Fragment key={index}>
-            {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
+            {utilitiesToDisplay.length > 1 && index === utilitiesToDisplay.length - 1 ? " and " : ""}
             <code>
               {name}-<var>{"<number>"}</var>
             </code>
-            {index === utilities.length - 1 || utilities.length < 3 ? "" : ","}
+            {index === utilitiesToDisplay.length - 1 || utilitiesToDisplay.length < 3 ? "" : ","}
           </Fragment>
         ))}{" "}
         utilities are driven by the <code>--spacing</code> theme variable, which can be customized in your own theme:
